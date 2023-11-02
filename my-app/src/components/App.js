@@ -148,26 +148,436 @@
 // export default App;
 
 //@ conditional rendering 
-import React from "react";
-var isLoggedIn = true;
+// import React from "react";
+// var isLoggedIn = true;
+// function App() {
+//   return (
+//     <div className="container">
+//       {isLoggedIn  && <h1>Hello</h1>}
+//        {!isLoggedIn && <form className="form">
+//         <input type="text" placeholder="Username" />
+//         <input type="password" placeholder="Password" />
+//         <button type="submit">Login</button>
+//       </form>
+//        }
+       
+//     </div>
+//   );
+// }
+
+// export default App;
+
+//@ React hooks
+// import React  from "react";
+// var count=0;
+
+// function increase(){
+//   count++;
+//   console.log(count);
+// }
+
+
+
+// function getTime(){
+//   var date=new Date();
+//   return date.toLocaleTimeString();
+// }
+
+// function App(){
+//   const [time,setTime]=React.useState();
+//   function getTime(){
+//     var date=new Date();
+//     setTime(date.toLocaleTimeString());
+//   }
+//     return (
+//       <div className="container">
+//         <h1>{time}</h1>
+//         {/* <button onClick={getTime}>Get Time</button> */}
+//         <div className="div">{setInterval(getTime,1000) && 0}</div>
+        
+//       </div>
+//   );
+// }
+
+//@ Event handling in React
+// import React from "react";
+
+// function App() {
+  
+//   const [bgcolor,setColor]=React.useState("white");
+//   const [name,setName]=React.useState("");
+
+//   const[clicked,setClicked]=React.useState(false);
+
+//   function f(){
+//     console.log("hu");
+//     setColor("black");
+//   }
+
+//   function f1(){
+//     console.log("bye");
+//     setColor("white");
+//   }
+
+//   function handleChange(event){
+//     setClicked(false);
+//     // console.log(event.target.value);
+//     setName(event.target.value);
+//   }
+
+//   function g(){
+//     setClicked(true);
+//   }
+
+//   return (
+//     <div className="container">
+//       <h1>Hello {clicked && name} </h1>
+//       <input
+//       name="myInput"
+//        type="text" placeholder="What's your name?" 
+//         onChange={handleChange}
+//         value={name}
+//       />
+//       <button onClick={g}  style={{backgroundColor : bgcolor} } onMouseOver={f} onMouseOut={f1} >Submit</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+//@ Changing Complex State
+// import React from "react";
+
+// function App() {
+//     const [fname,setfName]=React.useState("");
+//     const [lname,setlName]=React.useState("");
+//     function f(event){
+//       setfName(event.target.value);
+//     }
+//     function g(event){
+//       setlName(event.target.value);
+//     }
+//   return (
+//     <div className="container">
+//       <h1>Hello {fname+" "+lname}</h1>
+//       <form>
+//         <input name="fName" placeholder="First Name" onChange={f} />
+//         <input name="lName" placeholder="Last Name"  onChange={g}/>
+//         <button>Submit</button>
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default App;
+// import React, { useState } from "react";
+
+// function App() {
+//   const [fullName, setFullName] = useState({
+//     fName: "",
+//     lName: ""
+//   });
+
+//   function handleChange(event) {
+//     const { value, name } = event.target;
+
+//     setFullName(prevValue => {
+//       if (name === "fName") {
+//         return {
+//           fName: value,
+//           lName: prevValue.lName
+//         };
+//       } else if (name === "lName") {
+//         return {
+//           fName: prevValue.fName,
+//           lName: value
+//         };
+//       }
+//     });
+//   }
+
+//   return (
+//     <div className="container">
+//       <h1>
+//         Hello {fullName.fName +" "+ fullName.lName}
+//       </h1>
+//       <form>
+//         <input
+//           name="fName"
+//           onChange={handleChange}
+//           placeholder="First Name"
+//           value={fullName.fName}
+//         />
+//         <input
+//           name="lName"
+//           onChange={handleChange}
+//           placeholder="Last Name"
+//           value={fullName.lName}
+//         />
+//         <button>Submit</button>
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+//@ Changing Complex State Practice
+// import React, { useState } from "react";
+
+// function App() {
+//   const [contact, setContact] = useState({
+//     fName: "",
+//     lName: "",
+//     email: ""
+//   });
+
+//   function handleChange(event){
+//      const {name,value}=event.target;
+//       setContact(prevValue=>{
+//         if(name==="fName"){
+//           return{
+//             fName:value,
+//             lName:prevValue.lName,
+//             email:prevValue.email
+//           };
+//         }else if(name==="lName"){
+//           return{
+//             fName:prevValue.fName,
+//             lName:value,
+//             email:prevValue.email
+//           };
+//         }else if(name==="email"){
+//           return{
+//             fName:prevValue.fName,
+//             lName:prevValue.lName,
+//             email:value
+//           };
+//         }
+//       });
+//   }
+
+//   return (
+//     <div className="container">
+//       <h1>
+//         Hello {contact.fName} {contact.lName}
+//       </h1>
+//       <p>{contact.email}</p>
+//       <form>
+//         <input name="fName" placeholder="First Name" onChange={handleChange}/>
+//         <input name="lName" placeholder="Last Name" onChange={handleChange}/>
+//         <input name="email" placeholder="Email" onChange={handleChange}/>
+//         <button>Submit</button>
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+//@ JS ES6 Spread Operator
+// import React, { useState } from "react";
+
+// function App() {
+//   const [contact, setContact] = useState({
+//     fName: "",
+//     lName: "",
+//     email: ""
+//   });
+
+//   function handleChange(event) {
+//     const { name, value } = event.target;
+
+//     setContact(prevValue => {
+//       return {
+//         ...prevValue,
+//         [name]: value
+//       };
+//     });
+//   }
+
+//   return (
+//     <div className="container">
+//       <h1>
+//         Hello {contact.fName} {contact.lName}
+//       </h1>
+//       <p>{contact.email}</p>
+//       <form>
+//         <input
+//           onChange={handleChange}
+//           name="fName"
+//           value={contact.fName}
+//           placeholder="First Name"
+//         />
+//         <input
+//           onChange={handleChange}
+//           name="lName"
+//           value={contact.lName}
+//           placeholder="Last Name"
+//         />
+//         <input
+//           onChange={handleChange}
+//           name="email"
+//           value={contact.email}
+//           placeholder="Email"
+//         />
+//         <button>Submit</button>
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+//@ JS ES6 Spread Operator Practice
+// import React from "react";
+
+// function App() {
+//   const [arr,setarr]=React.useState([]);
+//   const [item,setitem]=React.useState(""); 
+
+//   function handleChange(event){
+//     setitem(event.target.value);
+//   }
+
+//   function f(){
+//     setarr(prevValue=>{
+//       return [...prevValue,item];
+//     });
+//     setitem(" ");
+//   }
+
+//   return (
+//     <div className="container">
+//       <div className="heading">
+//         <h1>To-Do List</h1>
+//       </div>
+//       <div className="form">
+//         <input type="text"
+//           onChange={handleChange}
+//           value={item} />
+//         <button onClick={f}>
+//           <span>Add</span>
+//         </button>
+//       </div>
+//       <div>
+//         <ul>
+//           {arr.map(todoitem=><li>{todoitem}</li>)}
+//         </ul>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+//@ Managing a component tree
+// import React, { useState } from "react";
+// import ToDoItem from "./TodoItem";
+
+// function App() {
+//   const [inputText, setInputText] = useState("");
+//   const [items, setItems] = useState([]);
+
+//   function handleChange(event) {
+//     const newValue = event.target.value;
+//     setInputText(newValue);
+//   }
+
+//   function addItem() {
+//     setItems(prevItems => {
+//       return [...prevItems, inputText];
+//     });
+//     setInputText("");
+//   }
+
+//   function deleteItem(id) {
+//     setItems(prevItems => {
+//       return prevItems.filter((item, index) => {
+//         return index !== id;
+//       });
+//     });
+//   }
+
+//   return (
+//     <div className="container">
+//       <div className="heading">
+//         <h1>To-Do List</h1>
+//       </div>
+//       <div className="form">
+//         <input onChange={handleChange} type="text" value={inputText} />
+//         <button onClick={addItem}>
+//           <span>Add</span>
+//         </button>
+//       </div>
+//       <div>
+//         <ul>
+//           {items.map((todoItem, index) => (
+//             <ToDoItem
+//               key={index}
+//               id={index}
+//               text={todoItem}
+//               onChecked={deleteItem}
+//             />
+//           ))}
+//         </ul>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+//@ Managing a component tree Practice
+import React, { useState } from "react";
+import ToDoItem from "./TodoItem";
+import InputArea from "./InputArea";
+
 function App() {
+  const [items, setItems] = useState([]);
+
+
+
+  function addItem(inputText) {
+    setItems(prevItems => {
+      return [...prevItems, inputText];
+    });
+  }
+
+  function deleteItem(id) {
+    setItems(prevItems => {
+      return prevItems.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div className="container">
-      {isLoggedIn  && <h1>Hello</h1>}
-       {!isLoggedIn && <form className="form">
-        <input type="text" placeholder="Username" />
-        <input type="password" placeholder="Password" />
-        <button type="submit">Login</button>
-      </form>
-       }
-       
+      <div className="heading">
+        <h1>To-Do List</h1>
+      </div>
+      <InputArea 
+      onClick={addItem}
+      />
+      <div>
+        <ul>
+          {items.map((todoItem, index) => (
+            <ToDoItem
+              key={index}
+              id={index}
+              text={todoItem}
+              onChecked={deleteItem}
+            />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
 
 export default App;
-
-
 
 
 

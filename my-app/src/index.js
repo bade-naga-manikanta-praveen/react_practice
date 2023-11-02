@@ -148,7 +148,62 @@ import * as cal from './calculator.js'
 // );
 
 //@React Props Practice + React dev tools + Mapping Data to Components+emojipedia+conditional rendering
+// ReactDOM.render(<App />, document.getElementById("root"));
+
+//@React use-state Hook + practice
+// var count=0;
+
+// function increase(){
+//   count++;
+//   console.log(count);
+// }
+
+// ReactDOM.render(
+//     <div className="container">
+//       <h1>{count}</h1>
+//       <button onClick={increase}>+</button>
+//     </div>,
+//     document.getElementById("root")
+//   );
+// ReactDOM.render(<App />, document.getElementById("root"));
+
+// CHALLENGE: uncomment the code below and see the car stats rendered
+//@ Destructuring in JS 
+// import cars from "./practice";
+
+// const [honda, tesla] = cars;
+// const [hondaTopColour]=honda.coloursByPopularity;
+// const [teslaTopColour]=tesla.coloursByPopularity;
+// const {hondaTopSpeed}=honda.speedStats;
+// const {teslaTopSpeed}=tesla.speedStats;
+
+// ReactDOM.render(
+//   <table>
+//     <tr>
+//       <th>Brand</th>
+//       <th>Top Speed</th>
+//     </tr>
+//     <tr>
+//       <td>{tesla.model}</td>
+//       <td>{teslaTopSpeed}</td>
+//       <td>{teslaTopColour}</td>
+//     </tr>
+//     <tr>
+//       <td>{honda.model}</td>
+//       <td>{hondaTopSpeed}</td>
+//       <td>{hondaTopColour}</td>
+//     </tr>
+//   </table>,
+//   document.getElementById("root")
+// );
+
+//@ Event handling in React
+// ReactDOM.render(<App />, document.getElementById("root"));
+
+//@ Changing Complex State + practice + JSX Spread Operator + Practice + Managing a component tree+Practice
+
 ReactDOM.render(<App />, document.getElementById("root"));
+
 
 
 reportWebVitals();
